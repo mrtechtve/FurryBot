@@ -1,0 +1,9 @@
+1.0.0
+    - Initial commit.
+1.0.1
+    - Added comments.
+1.0.2
+    - Added SSH Key 
+1.0.2B
+
+    - Removed several unused dependencies.

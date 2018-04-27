@@ -1,0 +1,5 @@
+{
+	"server_id":"Set server id here",
+    "prefix": "Set prefix here",
+	"token": "Bot token here"
+}
