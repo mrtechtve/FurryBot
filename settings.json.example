@@ -1,5 +1,6 @@
 {
-	"server_id":"Set server id here",
-    "prefix": "Set prefix here",
-	"token": "Bot token here"
+	"server_id":"",
+	"log_channel_id":"",
+    "prefix": "??",
+	"token": ""
 }

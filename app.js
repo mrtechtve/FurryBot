@@ -9,6 +9,7 @@ client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands');
 const chalk = require('chalk');
 const server_id = require('./settings.json').server_id
+const log_channel_id = require('./settings.json').log_channel_id; 
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -27,14 +28,14 @@ client.on('message', message => {
 
 	if(message.author.bot | message.channel.id == '335458962470076416' | message.channel.id == '372011399720861718') return;
 	if(message.guild.id !== server_id) return;
-	if(message.channel.id == '294090392939266048') return;
+	if(message.channel.id == log_channel_id) return;
 
 
 
-	client.channels.get('372011399720861718').send(
+	client.channels.get(log_channel_id).send(
 		`${message.cleanContent} by ${message.author.username} in ${message.channel}`);
 	Attachment.forEach(function(attachment) {
-		client.channels.get('372011399720861718').send({ files: [ `${attachment.url}`] });
+		client.channels.get(log_channel_id).send({ files: [ `${attachment.url}`] });
 
 
 		const options = {
