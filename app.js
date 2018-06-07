@@ -4,7 +4,6 @@ const token = require('./settings.json').token;
 const prefix = require('./settings.json').prefix;
 const download = require('image-downloader');
 const client = new Discord.Client();
-const omnichat = client.channels.get('372011399720861718')
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands');
 const chalk = require('chalk');
@@ -19,7 +18,6 @@ console.log('TaurBot');
 
 client.on('ready', () => {
 	console.log(chalk.green('Ready!'));
-	`client.user.setActivity('with friends', { type: 'PLAYING' });`
 
 });
 
