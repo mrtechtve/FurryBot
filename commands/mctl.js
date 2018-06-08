@@ -1,4 +1,5 @@
 const got = require('got');
+const Discord = require('discord.js');
 
 module.exports = {
 	name: 'mctl',
@@ -20,48 +21,71 @@ module.exports = {
                    }
                }
                 if(mctl.tracks[0].youtube != undefined)
-                    {message.channel.send({embed: {
-                        title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
-                        url: "http://twitch.tv/monstercat",
-
-                        color: 10197915,
-                        thumbnail: {
-                            url: mctl.tracks[0].album_cover,
-                        },
-        
-                        fields: [{
-                                name: "Listen on Spotify:",
-                                value: `${mctl.tracks[0].track_shortlink}`
-                            },
-                            {
-                                name: "Listen on YouTube:",
-                                value: `${mctl.tracks[0].youtube}`
-                            }
-                            ],
-                        footer: {
-                            icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
-                            text: "Information provided by mctl.io"
-                          }
-                      }});}
-                      else{ message.channel.send({embed: {
-                        title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
-                        url: "http://twitch.tv/monstercat",
-        
-                        color: 10197915,
-                        thumbnail: {
-                            url: mctl.tracks[0].album_cover,
-                        },
-        
-                        fields: [{
-                                name: "Listen on Spotify:",
-                                value: `${mctl.tracks[0].track_shortlink}`
-                            }
-                            ],
-                        footer: {
-                            icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
-                            text: "Information provided by mctl.io"
-                          }
-                      }});}
+                    {
+                        const embed = new Discord.RichEmbed()
+                            .setColor('10197915')
+                            .setTitle(`🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `)
+                            .setURL("http://twitch.tv/monstercat")
+                            .setThumbnail(mctl.tracks[0].album_cover)
+                            .addFields("Listen on Spotify:", `${mctl.tracks[0].track_shortlink}`)
+                            .addFields("Listen on YouTube:", `${mctl.tracks[0].youtube}`)
+                            .setFooter("Information provided by mctl.io", "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png")
+                        message.channel.send(embed);
+                            
+//                        message.channel.send({embed: {
+//                        title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
+//                        url: "http://twitch.tv/monstercat",
+//
+//                        color: 10197915,
+//                        thumbnail: {
+//                            url: mctl.tracks[0].album_cover,
+//                        },
+//        
+//                        fields: [{
+//                                name: "Listen on Spotify:",
+//                                value: `${mctl.tracks[0].track_shortlink}`
+//                            },
+//                            {
+//                                name: "Listen on YouTube:",
+//                                value: `${mctl.tracks[0].youtube}`
+//                            }
+//                            ],
+//                        footer: {
+//                            icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
+//                            text: "Information provided by mctl.io"
+//                          }
+//                      }});
+                    }
+                      else{ 
+                         const embed = new Discord.RichEmbed()
+                            .setColor('10197915')
+                            .setTitle(`🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `)
+                            .setURL("http://twitch.tv/monstercat")
+                            .setThumbnail(mctl.tracks[0].album_cover)
+                            .addFields("Listen on Spotify:", `${mctl.tracks[0].track_shortlink}`)
+                            .setFooter("Information provided by mctl.io", "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png")
+                        message.channel.send(embed);
+                          
+//                        message.channel.send({embed: {
+//                        title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
+//                        url: "http://twitch.tv/monstercat",
+//        
+//                        color: 10197915,
+//                        thumbnail: {
+//                            url: mctl.tracks[0].album_cover,
+//                        },
+//        
+//                        fields: [{
+//                                name: "Listen on Spotify:",
+//                                value: `${mctl.tracks[0].track_shortlink}`
+//                            }
+//                            ],
+//                        footer: {
+//                            icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
+//                            text: "Information provided by mctl.io"
+//                          }
+//                      }});
+                      }
                 //=> '<!doctype html> ...'
             } catch (error) {
                 console.log(error.response.body);
