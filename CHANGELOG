@@ -7,3 +7,5 @@
 1.0.2B
 
     - Removed several unused dependencies.
+1.0.3
+    - Removed unused commands, added birb command and modified mctl command to display hyperlinks.

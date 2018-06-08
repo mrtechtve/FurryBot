@@ -28,16 +28,7 @@ module.exports = {
                         thumbnail: {
                             url: mctl.tracks[0].album_cover,
                         },
-        
-                        fields: [{
-                                name: "Listen on Spotify:",
-                                value: `${mctl.tracks[0].track_shortlink}`
-                            },
-                            {
-                                name: "Listen on YouTube:",
-                                value: `${mctl.tracks[0].youtube}`
-                            }
-                            ],
+                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink}) \n[Listen on YouTube](${mctl.tracks[0].youtube})`,
                         footer: {
                             icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
                             text: "Information provided by mctl.io"
@@ -51,12 +42,7 @@ module.exports = {
                         thumbnail: {
                             url: mctl.tracks[0].album_cover,
                         },
-        
-                        fields: [{
-                                name: "Listen on Spotify:",
-                                value: `${mctl.tracks[0].track_shortlink}`
-                            }
-                            ],
+                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink})`,
                         footer: {
                             icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
                             text: "Information provided by mctl.io"
