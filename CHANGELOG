@@ -9,3 +9,5 @@
     - Removed several unused dependencies.
 1.0.3
     - Removed unused commands, added birb command and modified mctl command to display hyperlinks.
+1.0.4
+    - Updated birb command to send message in an embed using RichEmbed builder    
