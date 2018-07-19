@@ -18,7 +18,6 @@ console.log('TaurBot');
 
 client.on('ready', () => {
 	console.log(chalk.green('Ready!'));
-
 });
 
 client.on('message', message => {

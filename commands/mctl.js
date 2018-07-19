@@ -24,7 +24,7 @@ module.exports = {
                         title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
                         url: "http://twitch.tv/monstercat",
 
-                        color: 10197915,
+                        color: 0x000000,
                         thumbnail: {
                             url: mctl.tracks[0].album_cover,
                         },
