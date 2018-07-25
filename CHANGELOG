@@ -11,3 +11,5 @@
     - Removed unused commands, added birb command and modified mctl command to display hyperlinks.
 1.0.4
     - Updated birb command to send message in an embed using RichEmbed builder    
+1.0.5
+    - Removed all logging related functions. Renamed from TaurBot to FurryBot (Name currently placeholder)

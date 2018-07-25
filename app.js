@@ -2,54 +2,20 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const token = require('./settings.json').token;
 const prefix = require('./settings.json').prefix;
-const download = require('image-downloader');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands');
 const chalk = require('chalk');
 const server_id = require('./settings.json').server_id
-const log_channel_id = require('./settings.json').log_channel_id; 
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
-console.log('TaurBot');
+console.log('FurryBot');
 
 client.on('ready', () => {
 	console.log(chalk.green('Ready!'));
-});
-
-client.on('message', message => {
-	const Attachment = (message.attachments).array();
-
-	if(message.author.bot | message.channel.id == '335458962470076416' | message.channel.id == '372011399720861718') return;
-	if(message.guild.id !== server_id) return;
-	if(message.channel.id == log_channel_id) return;
-
-
-
-	client.channels.get(log_channel_id).send(
-		`${message.cleanContent} by ${message.author.username} in ${message.channel}`);
-	Attachment.forEach(function(attachment) {
-		client.channels.get(log_channel_id).send({ files: [ `${attachment.url}`] });
-
-
-		const options = {
-			url: `${attachment.url}`,
-			dest: './Images',
-		};
-
-		if(message.channel.id == '347006532321411074') {
-			download.image(options)
-				.then(({ filename, image }) => {
-					console.log(chalk.white('File saved to', filename))
-				}).catch((err) => {
-					throw err;
-				});
-		}
-
-	});
 });
 
 client.on('message', message => {
