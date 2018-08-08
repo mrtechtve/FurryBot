@@ -15,7 +15,12 @@ for (const file of commandFiles) {
 console.log('FurryBot');
 
 client.on('ready', () => {
-	console.log(chalk.green('Ready!'));
+	console.log(chalk.green(`${client.user.tag} Ready!`));
+	console.log(chalk.blue(`Running on ${client.guilds.size} Servers`));
+});
+
+client.on('disconnect', () => {
+	console.log(chalk.red('[WARNING] lost connection to Discord! (' + new Date() + ')'));
 });
 
 client.on('message', message => {
@@ -31,7 +36,7 @@ client.on('message', message => {
 	}
 	catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		message.reply('an error occurred');
 	}
 });
 

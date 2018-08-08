@@ -13,3 +13,5 @@
     - Updated birb command to send message in an embed using RichEmbed builder    
 1.0.5
     - Removed all logging related functions. Renamed from TaurBot to FurryBot (Name currently placeholder)
+1.0.6 
+    - Added sh based launch script, Improved console logging on startup, Added link to MCTL website within the MCTL command and added mention of random.birb.pw within the birb command.

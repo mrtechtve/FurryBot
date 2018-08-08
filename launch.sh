@@ -1,0 +1,1 @@
+while true; do FORCE_COLORS=1 pm2 start app.js  && pm2 monit ; sleep 5 ; done

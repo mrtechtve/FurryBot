@@ -19,6 +19,7 @@ module.exports = {
                        artist_collection = artist_collection + ", " + track_artists[i].name;
                    }
                }
+
                 if(mctl.tracks[0].youtube != undefined)
                     {message.channel.send({embed: {
                         title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
@@ -28,7 +29,7 @@ module.exports = {
                         thumbnail: {
                             url: mctl.tracks[0].album_cover,
                         },
-                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink}) \n[Listen on YouTube](${mctl.tracks[0].youtube})`,
+                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink}) \n[Listen on YouTube](${mctl.tracks[0].youtube})\n [MCTL Website](https://mctl.io/)`,
                         footer: {
                             icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
                             text: "Information provided by mctl.io"
@@ -38,11 +39,11 @@ module.exports = {
                         title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
                         url: "http://twitch.tv/monstercat",
         
-                        color: 10197915,
+                        color: 0x000000,
                         thumbnail: {
                             url: mctl.tracks[0].album_cover,
                         },
-                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink})`,
+                        description: `[Listen on Spotify](${mctl.tracks[0].track_shortlink})\n [MCTL Website](https://mctl.io/)`,
                         footer: {
                             icon_url: "https://images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png",
                             text: "Information provided by mctl.io"
