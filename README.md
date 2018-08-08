@@ -3,7 +3,7 @@ WIP Discord bot for furries
 
 
 ### Requirements
-Current node,js LTS or higher
+Current node.js LTS or higher
 
 PM2 must be installed globally to use the sh scrpt provided using:
 ```
