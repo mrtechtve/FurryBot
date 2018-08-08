@@ -15,12 +15,17 @@ In the main bot directory use npm to install the required packages
 ```
 npm install
 ```
-## Running
+
+### Configuration
+
+Rename settings.json.example to settings.json and provide your token and a prefix of your choice
+
+### Running
 If using the sh scrpt
 ```
 sh launch.sh
 ```
-otherwise lauch using:
+Otherwise lauch using:
 
 ```
 node app.js
