@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Ping!',
 	execute(message) {
 		message.channel.send('Pinging...').then(sent => {
-    	sent.edit(`Pong! ${sent.createdTimestamp - message.createdTimestamp}ms`);
+    	sent.edit(`:bird: Pong! ${sent.createdTimestamp - message.createdTimestamp}ms`);
 		});
 
 	},
