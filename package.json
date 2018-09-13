@@ -15,7 +15,10 @@
     "chalk": "^2.3.0",
     "discord.js": "^11.4.2",
     "download": "^6.2.5",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^1.7.4",
+    "ws": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
