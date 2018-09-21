@@ -4,23 +4,25 @@ var Discord = require(`discord.js`);
 require('moment-recur');
 
 module.exports = {
-    name: 'mc-live',
-	description: 'mc-live',
+    name: 'cotw',
+	description: 'cotw',
 	execute(message, args) {
 
         //if(message.author.id != "187986160914661377") return;
-
-        if(args.length >= 1 && args[0] == 'stop'){
+        if(args.length >= 1 && args[0] == 'stopreporting'){
             socket.off();
             socket.close();
             message.channel.send('MCTL Track Reporting Stopped');
             return false;
         } 
-        if(args.length >= 1 && args[0] == 'livestop'){
+        if(args.length >= 1 && args[0] == 'leave'){
             message.member.voiceChannel.leave();
+            socket.off();
+            socket.close();
+            message.channel.send('Left voice channel and stopped track reporting');
             return false;
         } 
-        if(args.length >= 1 && args[0] == 'live'){
+        if(args.length >= 1 && args[0] == 'reporting'){
             
             if(!socket.connected){
                 socket.open();
@@ -79,13 +81,49 @@ module.exports = {
                 return false;
         } 
 
+        if(args.length >= 1 && args[0] == 'play'){
+            var twitchStreams = require('twitch-get-stream')('f2o1xgopf1l3pw8tk907q91mhiyh5q');
+            twitchStreams.get('monstercat')
+                .then(function(streams) {
+                    //console.log(streams);
+                    const Discord = require('discord.js');
+                    const client = new Discord.Client();
+                    var sourceStream = null;
+                    for(var i = 0; i < streams.length; i++){
+                        if(streams[i] != null && streams[i].quality.toLowerCase() == 'audio only'){
+                            sourceStream = streams[i];
+                        }
+                    }
+                    if(sourceStream != null){
+                        if (message.member.voiceChannel) {
+                            message.member.voiceChannel.join()
+                            .then(connection => { // Connection is an instance of VoiceConnection
+                                //message.reply('I have successfully connected to the channel!');
+                                connection.playArbitraryInput(sourceStream.url);
+                                const embed = new Discord.RichEmbed()
+                                    .setTitle('Monstercat: Call of the Wild')
+                                    .setDescription(`Now Playing \n\n [Listen on Monstercat.com](https://live.monstercat.com/)`)
+                                    .setColor(0xDD2E44)
+                                    .setThumbnail(`https://www.monstercat.com/podcast/itunes_cover.jpg`)
+                                message.channel.send({embed: embed});
+                            });
+                        } else {
+                            message.channel.send('You are not currently in a voice channel, please join a voice channel and try again.');
+                        }
+                    }
+                });
+            return false;
+        }
         
         var myDate, recurrence;
         var format = 'hh:mm:ss';
         beforeTime = moment('14:50:00', format),
         afterTime = moment('15:05:00', format);
+        //beforeTime = moment('23:00:00', format),
+        //afterTime = moment('23:50:00', format);
         myDate = moment();
         recurrence = myDate.recur().every(['wednesday']).daysOfWeek(); 
+        //recurrence = myDate.recur().every(['thursday']).daysOfWeek(); 
         //Snag title here or we run into scoping issues.
         //Scoping issues are an absolute pain.
 
@@ -105,32 +143,27 @@ module.exports = {
                                 sourceStream = streams[i];
                             }
                         }
-
-                        
-                        console.log(sourceStream);
                         if(sourceStream != null){
                             if (message.member.voiceChannel) {
-                            message.member.voiceChannel.join()
-                            .then(connection => { // Connection is an instance of VoiceConnection
-                                //message.reply('I have successfully connected to the channel!');
-                                connection.playArbitraryInput(sourceStream.url);
-                                const embed = new Discord.RichEmbed()
-                                    .setTitle('Monstercat: Call of the Wild')
-                                    .setDescription(`Now Playing \n\n [Listen on Monstercat.com](https://live.monstercat.com/)`)
-                                    .setColor(0xDD2E44)
-                                    .setThumbnail(`https://www.monstercat.com/podcast/itunes_cover.jpg`)
-                                message.channel.send({embed: embed});
-                            }).error(err => {
-                                message.channel.send('There was an error connecting to the stream');
-                            });
+                                message.member.voiceChannel.join()
+                                .then(connection => { // Connection is an instance of VoiceConnection
+                                    //message.reply('I have successfully connected to the channel!');
+                                    connection.playArbitraryInput(sourceStream.url);
+                                    const embed = new Discord.RichEmbed()
+                                        .setTitle('Monstercat: Call of the Wild')
+                                        .setDescription(`Now Playing \n\n [Listen on Monstercat.com](https://live.monstercat.com/)`)
+                                        .setColor(0xDD2E44)
+                                        .setThumbnail(`https://www.monstercat.com/podcast/itunes_cover.jpg`)
+                                    message.channel.send({embed: embed});
+                                });
+                            } else {
+                                message.channel.send('You are not currently in a voice channel, please join a voice channel and try again.');
                             }
                         }
                     });
-                console.log('And we\'re playing!');
-                
             } else {
                 if(moment().isAfter(afterTime)){
-                    //message.channel.send('We missed the stream! Come back next week :c');
+                    message.channel.send('We missed the stream! Come back next week :c');
                 } else {
                     difference = moment().to(beforeTime);
                     //message.channel.send('It\'s too early! Come back in ' + difference);
@@ -147,7 +180,7 @@ module.exports = {
             //need a moment for next wednesday.
             var nextWednesday;
             const dayINeed = 3; // for Wednesday
-            //const dayINeed = 5;
+            //const dayINeed = 4;
             const today = moment().isoWeekday();
 
             // if we haven't yet passed the day of the week that I need:
@@ -168,8 +201,4 @@ module.exports = {
                 .setThumbnail(`https://www.monstercat.com/podcast/itunes_cover.jpg`)
             message.channel.send({embed: embed});
         }
-         
-
-
-        return false;
     }};
