@@ -10,6 +10,7 @@ module.exports = {
 
         //if(message.author.id != "187986160914661377") return;
         if(args.length >= 1 && args[0] == 'stopreporting'){
+            if(message.author.id != "187986160914661377") return;
             socket.off();
             socket.close();
             message.channel.send('MCTL Track Reporting Stopped');
@@ -23,7 +24,7 @@ module.exports = {
             return false;
         } 
         if(args.length >= 1 && args[0] == 'reporting'){
-            
+            if(message.author.id != "187986160914661377") return;
             if(!socket.connected){
                 socket.open();
                 } 
