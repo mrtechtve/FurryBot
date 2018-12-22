@@ -8,6 +8,8 @@ module.exports = {
 	description: 'cotw',
 	execute(message, args) {
 
+
+        message.channel.send('\`\`\`Monstercat changed their chat bot on December 14, 2018! this feature is currently not working for an unknown amount of time.\`\`\`') ;return
         //if(message.author.id != "187986160914661377") return;
         if(args.length >= 1 && args[0] == 'stopreporting'){
             if(message.author.id != "187986160914661377") return;

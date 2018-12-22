@@ -21,7 +21,8 @@ module.exports = {
                }
 
                 if(mctl.tracks[0].youtube != undefined)
-                    {message.channel.send({embed: {
+                    {   message.channel.send('\`\`\`Monstercat changed their chat bot on December 14, 2018! this feature is currently not working for an unknown amount of time.\`\`\`'); 
+                        message.channel.send({embed: {
                         title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
                         url: "http://twitch.tv/monstercat",
 
@@ -35,7 +36,8 @@ module.exports = {
                             text: "Information provided by mctl.io"
                           }
                       }});}
-                      else{ message.channel.send({embed: {
+                      else{message.channel.send('\`\`\`Monstercat changed their chat bot on December 14, 2018! this feature is currently not working for an unknown amount of time.\`\`\`');  
+                          message.channel.send({embed: {
                         title: `🎶 Now Playing on Monstercat FM: ${artist_collection} - ${mctl.tracks[0].title} `,
                         url: "http://twitch.tv/monstercat",
         
