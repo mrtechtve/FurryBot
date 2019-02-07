@@ -1,4 +1,4 @@
-# FurryBot
+# Raiseblaze
 WIP Discord bot for furries
 
 
