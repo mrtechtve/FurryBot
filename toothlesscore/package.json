@@ -1,0 +1,24 @@
+{
+  "name": "toothlesscore",
+  "version": "1.0.0",
+  "description": "ToothlessCore – Immo's bot core for JS",
+  "main": "bot.js",
+  "scripts": {
+    "start": "pm2 start bot.js --name \"Toothless\"",
+    "stop": "pm2 stop Toothless",
+    "restart": "pm2 restart Toothless",
+    "test": "eslint ."
+  },
+  "keywords": [
+    "bot",
+    "discord"
+  ],
+  "author": "Immo <seiryu@derg.immo>",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "better-sqlite3": "^4.1.4",
+    "coloredtext": "^1.1.1",
+    "discord.js": "^11.3.2",
+    "eslint": "^5.13.0"
+  }
+}
