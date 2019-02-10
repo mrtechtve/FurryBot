@@ -15,3 +15,7 @@
     - Removed all logging related functions. Renamed from TaurBot to FurryBot (Name currently placeholder)
 1.0.6 
     - Added sh based launch script, Improved console logging on startup, Added link to MCTL website within the MCTL command and added mention of random.birb.pw within the birb command.
+1.0.7
+    - cotw is now mcfm, mcfm simplified, live and mctl completly remove do to nonfunctional API
+1.0.8
+    - Rewrite to use the ToothlessCore bot core

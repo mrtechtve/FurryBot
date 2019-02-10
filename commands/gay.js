@@ -9,7 +9,7 @@ module.exports = class modGay {
             info: "Gay"
         };
     }
-    message(msg) {
+    command(msg) {
         msg.channel.send('🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈');
     }
 };

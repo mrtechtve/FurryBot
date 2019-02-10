@@ -1,7 +1,7 @@
-module.exports = class modBlep {
+module.exports = class modTester {
     constructor(client) {
         this.client = client;
-        this.name = "blep";
+        this.name = "tester";
         this.permissions = "everyone";
         this.info = {
             category: "Fun",
@@ -9,7 +9,7 @@ module.exports = class modBlep {
             info: "Blep"
         };
     }
-    command(msg) {
+    message(msg) {
         msg.channel.send("🇧 🇱 🇪 🇵");
     }
 };
