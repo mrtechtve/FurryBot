@@ -9,7 +9,7 @@ module.exports = class modFire {
             info: "🔥"
         };
     }
-    message(msg) {
+    command(msg) {
         msg.channel.send('🔥🔥‍🔥🔥🔥🔥🔥🔥🔥');
     }
 };

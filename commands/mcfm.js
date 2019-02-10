@@ -1,9 +1,5 @@
-const moment = require('moment');
-const socket = require('socket.io-client')('wss://prism.theak.io:443');
 const {RichEmbed: Embed} = require("discord.js");
 const twitchStreams = require('twitch-get-stream')('f2o1xgopf1l3pw8tk907q91mhiyh5q');
-require("moment-recur");
-
 module.exports = class modMCFM {
     constructor(client) {
         this.client = client;
@@ -12,11 +8,12 @@ module.exports = class modMCFM {
         this.info = {
             category: "music",
             usage: "[leave]",
-            info: ""
+            info: "Plays Monstercat's Radio Livestream in a Voice Channel"
         };
     }
     command(msg, args) {
-        if (args.length >= 1 && args[0] == "leave") {
+        console.log(args)
+        if (args.length && args == "leave") {
             msg.member.voiceChannel.leave();
             return msg.channel.send("Disconnected from Voice Channel");
         }
