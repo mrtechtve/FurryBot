@@ -6,10 +6,10 @@ module.exports = class modGay {
         this.info = {
             category: "Fun",
             usage: "",
-            info: "Gay"
+            info: "Rainbows!"
         };
     }
     command(msg) {
-        msg.channel.send('🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈');
+        msg.channel.send('🏳️‍🌈🏳️‍🌈🏳️‍🌈');
     }
 };

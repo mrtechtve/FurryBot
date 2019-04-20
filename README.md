@@ -1,6 +1,8 @@
 # Raiseblaze
 WIP Discord bot for furries based on the [ToothlessCore](https://github.com/Immortalizd/ToothlessCore) Discord bot core 
 
+**Release 1.1 is the final release until further notice. This project is no longer activly maintaind. Minor changes may occour but the version number will not change**
+
 ### Installing
 In the main bot directory use npm to install the required packages
 ```

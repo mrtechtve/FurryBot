@@ -1,6 +1,6 @@
 const {RichEmbed: re} = require("discord.js");
 const Constants = require("../Modules/Constants");
-
+//Modified from ToothlessCore original
 module.exports = class modInfo {
 	constructor(client) {
 		this.client = client;
@@ -45,7 +45,7 @@ module.exports = class modInfo {
 			case "in_guild": {
 				const status = user.user.presence.status.toUpperCase();
 				const embed = new re()
-					.setTitle(this.client.i18n.translate(msg, "info.user_info_w", Constants.EMOTES[status]))
+					.setTitle(this.client.i18n.translate(msg, "info.user_info_w"))
 					.setColor(Constants.COLORS[status])
 					.setThumbnail(user.user.avatarURL)
 					.addField(this.client.i18n.translate(msg, "info.tag"), user.user.tag, true)
@@ -78,7 +78,7 @@ module.exports = class modInfo {
 			case "self": {
 				const status = user.author.presence.status.toUpperCase();
 				const embed = new re()
-					.setTitle(this.client.i18n.translate(msg, "info.user_info_w", Constants.EMOTES[status]))
+					.setTitle(this.client.i18n.translate(msg, "info.user_info_w", [status]))
 					.setColor(Constants.COLORS[status])
 					.setThumbnail(user.author.avatarURL, true)
 					.addField(this.client.i18n.translate(msg, "info.tag"), user.author.tag, true)

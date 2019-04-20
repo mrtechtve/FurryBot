@@ -1,31 +1,25 @@
 {
   "name": "raiseblaze",
-  "version": "1.0.8",
-  "description": "Discord bot",
+  "version": "1.1.0",
+  "description": "WIP Furry Discord bot",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mrtechtve",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "dependencies": {
-    "Promise": "^1.0.5",
     "better-sqlite3": "^4.1.4",
-    "bluebird": "^3.5.1",
-    "chalk": "^2.3.0",
     "coloredtext": "^1.1.1",
     "discord.js": "^11.3.2",
     "download": "^6.2.5",
     "ffmpeg-binaries": "^4.0.0",
     "fs": "0.0.1-security",
-    "got": "^9.6.0",
-    "moment": "^2.24.0",
     "node-opus": "^0.3.1",
-    "twitch-get-stream": "^0.5.0",
-    "ws": "^6.0.0"
+    "promise": "^8.0.3",
+    "twitch-get-stream": "^0.5.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-aqua": "^3.0.0"
+    "eslint": "^4.19.1"
   }
 }

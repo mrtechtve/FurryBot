@@ -6,7 +6,7 @@ module.exports = class modSerg {
         this.info = {
             category: "Fun",
             usage: "",
-            info: "cheese"
+            info: "Sergals are cheese!"
         };
     }
     command(msg) {

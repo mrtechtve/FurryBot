@@ -19,3 +19,12 @@
     - cotw is now mcfm, mcfm simplified, live and mctl completly remove do to nonfunctional API
 1.0.8
     - Rewrite to use the ToothlessCore bot core
+1.1F
+    - Many changes and fixes. Unfinished command warning message added to mcfm command. 
+    - More descriptive descriptions on some commands.
+    - Emotes removed from the constants module and the info 
+    - myinfo command removed.
+    - beep, blep and fire commands removed
+    - Licence information changed to AGPL-3.0 to relect that of the ToothlessCore project.
+    - some unused packages removed from package.json
+    - Final numbered release until further notice.

@@ -1,14 +1,15 @@
 const {RichEmbed: Embed} = require("discord.js");
 const twitchStreams = require('twitch-get-stream')('f2o1xgopf1l3pw8tk907q91mhiyh5q');
+    
 module.exports = class modMCFM {
     constructor(client) {
         this.client = client;
         this.name = "mcfm";
         this.permissions = "everyone";
         this.info = {
-            category: "music",
+            category: "Music",
             usage: "[leave]",
-            info: "Plays Monstercat's Radio Livestream in a Voice Channel"
+            info: "Listen to Monstercat Radio in a voice channel"
         };
     }
     command(msg, args) {
@@ -28,11 +29,11 @@ module.exports = class modMCFM {
                 if (msg.member.voiceChannel) {
                     msg.member.voiceChannel.join().then(conn => {
                         conn.playArbitraryInput(sourceStream.url);
+                        msg.channel.send("`WARNING: This command is unfinished and contains bugs. The bot will not leave the voice channel until you issue the [leave] command, even if you disconnect`");
                         const embed = new Embed()
                             .setTitle("You are listening to:")
                             .setDescription("Monstercat Radio \n A 24/7 music stream of non stop Monstercat music! \n [Listen on the Monstercat Hub](https://live.monstercat.com/)")
                             .setColor(0x6441A4)
-                            .setThumbnail("https://images-ext-2.discordapp.net/external/MTnKJPFo7Xr1hmLHZamfnGMyBv3yarKfEh4vn1f-j6s/https/images-ext-1.discordapp.net/external/gJnNg5O5sQtjxqjfbPJxsteW3slu549UJ2sF7XQCYP0/https/mctl.io/assets/img/mctl-logo-square.png");
                         msg.channel.send(embed);
                     });
                 } else {
